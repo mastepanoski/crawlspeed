@@ -1,0 +1,13 @@
+'use strict'
+
+/* 3rd parties libraries & components */
+const path = require('path')
+
+require('./models/environment')
+
+module.exports = {
+  'config':          path.resolve('models', 'dbConfig.js'),
+  'migrations-path': path.resolve('migrations'),
+  'seeders-path': path.resolve('seeders'),
+  'debug': true
+}

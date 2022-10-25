@@ -1,0 +1,55 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+/dist
+
+# misc
+.DS_Store
+*.pem
+/.local
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# logs
+**/*.log
+
+# local env files
+.env
+.env.production
+.env.test
+.env*.local
+
+# public files
+public/*
+
+# vercel
+.vercel
+
+# husky
+.husky
+
+# typescript
+*.tsbuildinfo
+
+# firebase
+serviceAccountKey.json
+
+# google cloud
+agilestarters-*.json

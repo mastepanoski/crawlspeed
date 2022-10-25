@@ -1,0 +1,15 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.format": true
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[typescript][javascript]": {
+    "editor.formatOnSave": false
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
