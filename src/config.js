@@ -2,8 +2,9 @@
 
 const { Sequelize } = require('sequelize')
 const dbConfig = require('./dbConfig')
+const logger = require('./logging/logService')
 
-const dsSetup = (debug = false)  => {
+const dsSetup = (debug = false) => {
   return {
     connection: new Sequelize(
       dbConfig.database,
@@ -18,7 +19,7 @@ const dsSetup = (debug = false)  => {
           acquire: 30000,
           idle: 10000
         },
-        logging: debug ? console.log : () => {}
+        logging: debug ? logger.info : () => {}
       }
     )
   }

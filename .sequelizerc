@@ -3,10 +3,10 @@
 /* 3rd parties libraries & components */
 const path = require('path')
 
-require('./models/environment')
+require('./src/environment')
 
 module.exports = {
-  'config':          path.resolve('models', 'dbConfig.js'),
+  'config':          path.resolve('src', 'dbConfig.js'),
   'migrations-path': path.resolve('migrations'),
   'seeders-path': path.resolve('seeders'),
   'debug': true

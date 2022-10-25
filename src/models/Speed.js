@@ -20,15 +20,15 @@ const TABLE_ATTRIBUTES = {
 }
 
 const createModel = (connection) => {
-    return connection.define(TABLE_NAME, TABLE_ATTRIBUTES, 
-      {
-          charset: 'utf8',
-          collate: 'utf8_general_ci',
-          timestamps: true,
-          underscored: true,
-          createdAt: 'created_at',
-          updatedAt: 'updated_at'
-     }
+  return connection.define(TABLE_NAME, TABLE_ATTRIBUTES,
+    {
+      charset: 'utf8',
+      collate: 'utf8_general_ci',
+      timestamps: true,
+      underscored: true,
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
+    }
   )
 }
 
