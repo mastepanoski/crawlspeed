@@ -10,9 +10,11 @@ const dsSetup = require('./src/config')
 const logger = require('./src/logging/logService')
 
 async function main () {
-  const urlToVisit = 'https://lpguatrache.com.ar/speedtest'
+  const config = dsSetup()
+
+  const urlToVisit = config.servers.libreSpeedServer
   const CronJob = cron.CronJob
-  const speedModel = createSpeedModel(dsSetup().connection)
+  const speedModel = createSpeedModel(config.connection)
 
   const calculateSpeed = async () => {
     const browser = await puppeteer.launch({ headless: true })
@@ -34,7 +36,9 @@ async function main () {
         upload: uploadSpeed
       })
 
-      logger.info(`D ${downloadSpeed} / U ${uploadSpeed}`)
+      if (config.monitor.debug) {
+        logger.info(`D ${downloadSpeed} / U ${uploadSpeed}`)
+      }
     } catch (err) {
       logger.error('Error intentando obtener datos ' + err)
     }
@@ -44,7 +48,7 @@ async function main () {
 
   await calculateSpeed()
 
-  const job = new CronJob('0 */10 * * * *', async function () {
+  const job = new CronJob(`0 */${config.monitor.everyMinutes} * * * *`, async function () {
     await calculateSpeed()
   })
 
